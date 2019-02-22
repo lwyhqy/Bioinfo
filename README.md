@@ -1,2 +1,2 @@
 # Bioinfo
-# Hello, git!
+# Hello, git.
