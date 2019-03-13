@@ -117,7 +117,9 @@ if(F){
     tsne_out <- Rtsne(a3,pca=FALSE,perplexity=30,theta=0.0) # Run TSNE
     tsnes=tsne_out$Y
     colnames(tsnes) <- c("tSNE1", "tSNE2")
-    ggplot(tsnes, aes(x = tSNE1, y = tSNE2))+ geom_point()
+    tsnes=as.data.frame(tsnes)
+    tsnes$group=c(rep("b1",200),rep("b2",200))
+    ggplot(tsnes, aes(x = tSNE1, y = tSNE2,color=group))+ geom_point()
   }
   
   
