@@ -7,8 +7,8 @@ spli <- function(out,x,df=data){
   d <<- datadist(df[-1])
   options(datadist='d')
   formula=paste(index[1],"~",paste(index[-c(1,i)],collapse="+"),"+rcs(value,3)")
-  fit <- lrm(formula = formula(formula),data=tmp)
-  p=with(tmp,ggplot(Predict(fit, value, ref.zero=TRUE, fun=exp)))
+  fit <- lrm(formula = formula(formula),data=df)
+  p=with(df,ggplot(Predict(fit, value, ref.zero=TRUE, fun=exp)))
   a=ggplot_build(p)$data[[2]]
   ggplot(data=a,aes(x,y))+geom_line(data=a,aes(x,y=y),linetype=1,color="black")+
     geom_line(data=a,aes(x,y=ymin),linetype=6,color="black")+
